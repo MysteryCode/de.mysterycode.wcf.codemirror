@@ -6,7 +6,7 @@ API
 ---
 In order to include the CodeMirror editor use:
 
-`{include file='codemirror' codemirrorMode='language' codemirrorSelector='id of your textarea'}`
+`{include file='mcodemirror' codemirrorMode='language' codemirrorSelector='id of your textarea'}`
 
 **Example:**
 ```
@@ -17,7 +17,7 @@ In order to include the CodeMirror editor use:
         <dt>Your message in here:</dt>
         <dd>
             <textarea id="scss" name="scss">/* some SCSS seclarations */</textarea>
-            {include file='codemirror' codemirrorMode='text/x-less' codemirrorSelector='scss'}
+            {include file='mcodemirror' codemirrorMode='text/x-less' codemirrorSelector='scss'}
         </dd>
     </dl>
 </section>

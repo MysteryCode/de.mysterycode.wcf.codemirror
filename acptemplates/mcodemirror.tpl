@@ -1,29 +1,29 @@
 {if !$codemirrorLoaded|isset}
 	<script data-relocate="true">window.define.amd = undefined;</script>
-	<script data-relocate="true" src="{@$__wcf->getPath()}js/3rdParty/codemirror/codemirror.js"></script>
-	<script data-relocate="true" src="{@$__wcf->getPath()}js/3rdParty/codemirror/addon/dialog/dialog.js"></script>
-	<script data-relocate="true" src="{@$__wcf->getPath()}js/3rdParty/codemirror/addon/search/searchcursor.js"></script>
-	<script data-relocate="true" src="{@$__wcf->getPath()}js/3rdParty/codemirror/addon/search/search.js"></script>
+	<script data-relocate="true" src="{@$__wcf->getPath()}js/3rdParty/codemirror-mc/codemirror.js"></script>
+	<script data-relocate="true" src="{@$__wcf->getPath()}js/3rdParty/codemirror-mc/addon/dialog/dialog.js"></script>
+	<script data-relocate="true" src="{@$__wcf->getPath()}js/3rdParty/codemirror-mc/addon/search/searchcursor.js"></script>
+	<script data-relocate="true" src="{@$__wcf->getPath()}js/3rdParty/codemirror-mc/addon/search/search.js"></script>
 	<script data-relocate="true">window.define.amd = window.__require_define_amd;</script>
 {/if}
 {if $codemirrorMode|isset}
 	<script data-relocate="true">window.define.amd = undefined;</script>
 	{if $codemirrorMode != 'smartymixed'}
-		<script data-relocate="true" src="{@$__wcf->getPath()}js/3rdParty/codemirror/mode/{if $codemirrorMode == 'text/x-less'}css/css{else}{$codemirrorMode}/{$codemirrorMode}{/if}.js"></script>
+		<script data-relocate="true" src="{@$__wcf->getPath()}js/3rdParty/codemirror-mc/mode/{if $codemirrorMode == 'text/x-less'}css/css{else}{$codemirrorMode}/{$codemirrorMode}{/if}.js"></script>
 	{/if}
 	
 	{if $codemirrorMode == 'htmlmixed' || $codemirrorMode == 'smartymixed' || $codemirrorMode == 'php'}
 		{if $codemirrorMode == 'smartymixed'}
-			<script data-relocate="true" src="{@$__wcf->getPath()}js/3rdParty/codemirror/mode/htmlmixed/htmlmixed.js"></script>
-			<script data-relocate="true" src="{@$__wcf->getPath()}js/3rdParty/codemirror/mode/smarty/smarty.js"></script>
+			<script data-relocate="true" src="{@$__wcf->getPath()}js/3rdParty/codemirror-mc/mode/htmlmixed/htmlmixed.js"></script>
+			<script data-relocate="true" src="{@$__wcf->getPath()}js/3rdParty/codemirror-mc/mode/smarty/smarty.js"></script>
 		{elseif $codemirrorMode == 'php'}
-			<script data-relocate="true" src="{@$__wcf->getPath()}js/3rdParty/codemirror/mode/htmlmixed/htmlmixed.js"></script>
-			<script data-relocate="true" src="{@$__wcf->getPath()}js/3rdParty/codemirror/mode/clike/clike.js"></script>
+			<script data-relocate="true" src="{@$__wcf->getPath()}js/3rdParty/codemirror-mc/mode/htmlmixed/htmlmixed.js"></script>
+			<script data-relocate="true" src="{@$__wcf->getPath()}js/3rdParty/codemirror-mc/mode/clike/clike.js"></script>
 		{/if}
 		
-		<script data-relocate="true" src="{@$__wcf->getPath()}js/3rdParty/codemirror/mode/css/css.js"></script>
-		<script data-relocate="true" src="{@$__wcf->getPath()}js/3rdParty/codemirror/mode/javascript/javascript.js"></script>
-		<script data-relocate="true" src="{@$__wcf->getPath()}js/3rdParty/codemirror/mode/xml/xml.js"></script>
+		<script data-relocate="true" src="{@$__wcf->getPath()}js/3rdParty/codemirror-mc/mode/css/css.js"></script>
+		<script data-relocate="true" src="{@$__wcf->getPath()}js/3rdParty/codemirror-mc/mode/javascript/javascript.js"></script>
+		<script data-relocate="true" src="{@$__wcf->getPath()}js/3rdParty/codemirror-mc/mode/xml/xml.js"></script>
 	{/if}
 	<script data-relocate="true">window.define.amd = window.__require_define_amd;</script>
 {/if}
@@ -31,7 +31,7 @@
 
 <script data-relocate="true">
 	{if !$codemirrorLoaded|isset}
-		['{@$__wcf->getPath()}js/3rdParty/codemirror/codemirror.css', '{@$__wcf->getPath()}js/3rdParty/codemirror/addon/dialog/dialog.css'].forEach((href) => {
+		['{@$__wcf->getPath()}js/3rdParty/codemirror-mc/codemirror.css', '{@$__wcf->getPath()}js/3rdParty/codemirror-mc/addon/dialog/dialog.css'].forEach((href) => {
 			const link = document.createElement('link');
 			link.rel = 'stylesheet';
 			link.href = href;

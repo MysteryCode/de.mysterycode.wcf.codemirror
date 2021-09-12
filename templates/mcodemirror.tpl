@@ -5,6 +5,14 @@
 	<script data-relocate="true" src="{@$__wcf->getPath()}js/3rdParty/codemirror-mc/addon/search/searchcursor.js"></script>
 	<script data-relocate="true" src="{@$__wcf->getPath()}js/3rdParty/codemirror-mc/addon/search/search.js"></script>
 	<script data-relocate="true">window.define.amd = window.__require_define_amd;</script>
+	<script data-relocate="true">
+		['{@$__wcf->getPath()}js/3rdParty/codemirror-mc/codemirror.css', '{@$__wcf->getPath()}js/3rdParty/codemirror-mc/addon/dialog/dialog.css'].forEach((href) => {
+			const link = document.createElement('link');
+			link.rel = 'stylesheet';
+			link.href = href;
+			document.head.appendChild(link);
+		});
+	</script>
 {/if}
 {if $codemirrorMode|isset}
 	<script data-relocate="true">window.define.amd = undefined;</script>
@@ -26,19 +34,11 @@
 		<script data-relocate="true" src="{@$__wcf->getPath()}js/3rdParty/codemirror-mc/mode/xml/xml.js"></script>
 	{/if}
 	<script data-relocate="true">window.define.amd = window.__require_define_amd;</script>
+	{assign var='codemirrorLoaded' value=true}
 {/if}
 {event name='javascriptIncludes'}
 
 <script data-relocate="true">
-	{if !$codemirrorLoaded|isset}
-		['{@$__wcf->getPath()}js/3rdParty/codemirror-mc/codemirror.css', '{@$__wcf->getPath()}js/3rdParty/codemirror-mc/addon/dialog/dialog.css'].forEach((href) => {
-			const link = document.createElement('link');
-			link.rel = 'stylesheet';
-			link.href = href;
-			document.head.appendChild(link);
-		});
-	{/if}
-	
 	require(['EventHandler', 'Dom/Traverse', 'Dom/Util'], function(EventHandler, DomTraverse, DomUtil) {
 		const elements = document.querySelectorAll('{@$codemirrorSelector|encodeJS}');
 		const config = {
@@ -119,4 +119,3 @@
 		});
 	});
 </script>
-{assign var='codemirrorLoaded' value=true}

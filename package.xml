@@ -3,7 +3,7 @@
 	<packageinformation>
 		<packagename>CodeMirror</packagename>
 		<packagedescription><![CDATA[Implements CodeMirror]]></packagedescription>
-		<version>1.0.1</version>
+		<version>1.0.2</version>
 		<date>2021-09-12</date>
 	</packageinformation>
 	
@@ -24,10 +24,26 @@
 		<instruction type="file" />
 		<instruction type="acpTemplate" />
 		<instruction type="template" />
+		
+		<instruction type="option" />
+		
+		<instruction type="language" />
 	</instructions>
 	
 	<instructions type="update" fromversion="1.0.0">
 		<instruction type="acpTemplate" />
 		<instruction type="template" />
+		
+		<instruction type="option" />
+		
+		<instruction type="language" />
+	</instructions>
+	<instructions type="update" fromversion="1.0.1">
+		<instruction type="acpTemplate" />
+		<instruction type="template" />
+		
+		<instruction type="option" />
+		
+		<instruction type="language" />
 	</instructions>
 </package>

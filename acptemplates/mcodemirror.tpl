@@ -6,7 +6,12 @@
 	<script data-relocate="true" src="{@$__wcf->getPath()}js/3rdParty/codemirror-mc/addon/search/search.js"></script>
 	<script data-relocate="true">window.define.amd = window.__require_define_amd;</script>
 	<script data-relocate="true">
-		['{@$__wcf->getPath()}js/3rdParty/codemirror-mc/codemirror.css', '{@$__wcf->getPath()}js/3rdParty/codemirror-mc/addon/dialog/dialog.css'].forEach((href) => {
+		[
+			'{@$__wcf->getPath()}js/3rdParty/codemirror-mc/codemirror.css',
+			'{@$__wcf->getPath()}js/3rdParty/codemirror-mc/addon/dialog/dialog.css',
+			'{@$__wcf->getPath()}js/3rdParty/codemirror-mc/addon/fold/foldgutter.css',
+			'{@$__wcf->getPath()}js/3rdParty/codemirror-mc/theme/{CODEMIRROR_THEME}.css',
+		].forEach((href) => {
 			const link = document.createElement('link');
 			link.rel = 'stylesheet';
 			link.href = href;
@@ -19,7 +24,13 @@
 	{if $codemirrorMode != 'smartymixed'}
 		<script data-relocate="true" src="{@$__wcf->getPath()}js/3rdParty/codemirror-mc/mode/{if $codemirrorMode == 'text/x-less'}css/css{else}{$codemirrorMode}/{$codemirrorMode}{/if}.js"></script>
 	{/if}
-	
+
+	<script data-relocate="true" src="{@$__wcf->getPath()}js/3rdParty/codemirror-mc/addon/fold/foldcode.js"></script>
+	<script data-relocate="true" src="{@$__wcf->getPath()}js/3rdParty/codemirror-mc/addon/fold/foldgutter.js"></script>
+	<script data-relocate="true" src="{@$__wcf->getPath()}js/3rdParty/codemirror-mc/addon/fold/brace-fold.js"></script>
+	<script data-relocate="true" src="{@$__wcf->getPath()}js/3rdParty/codemirror-mc/addon/fold/indent-fold.js"></script>
+	<script data-relocate="true" src="{@$__wcf->getPath()}js/3rdParty/codemirror-mc/addon/fold/comment-fold.js"></script>
+
 	{if $codemirrorMode == 'htmlmixed' || $codemirrorMode == 'smartymixed' || $codemirrorMode == 'php'}
 		{if $codemirrorMode == 'smartymixed'}
 			<script data-relocate="true" src="{@$__wcf->getPath()}js/3rdParty/codemirror-mc/mode/htmlmixed/htmlmixed.js"></script>
@@ -32,6 +43,10 @@
 		<script data-relocate="true" src="{@$__wcf->getPath()}js/3rdParty/codemirror-mc/mode/css/css.js"></script>
 		<script data-relocate="true" src="{@$__wcf->getPath()}js/3rdParty/codemirror-mc/mode/javascript/javascript.js"></script>
 		<script data-relocate="true" src="{@$__wcf->getPath()}js/3rdParty/codemirror-mc/mode/xml/xml.js"></script>
+		<script data-relocate="true" src="{@$__wcf->getPath()}js/3rdParty/codemirror-mc/addon/fold/xml-fold.js"></script>
+	{/if}
+	{if $codemirrorMode === 'markdown'}
+		<script data-relocate="true" src="{@$__wcf->getPath()}js/3rdParty/codemirror-mc/addon/fold/markdown-fold.js"></script>
 	{/if}
 	<script data-relocate="true">window.define.amd = window.__require_define_amd;</script>
 	{assign var='codemirrorLoaded' value=true}
@@ -57,7 +72,11 @@
 			indentWithTabs: true,
 			lineNumbers: true,
 			indentUnit: 4,
-			readOnly: {if !$editable|isset || $editable}false{else}true{/if}
+			readOnly: {if !$editable|isset || $editable}false{else}true{/if},
+			theme: '{CODEMIRROR_THEME}',
+			foldGutter: true,
+			gutters: ["CodeMirror-linenumbers", "CodeMirror-foldgutter"],
+			extraKeys: { "Ctrl-Q": (cm) => { cm.foldCode(cm.getCursor()); } },
 		};
 		
 		elements.forEach((element) => {
@@ -72,6 +91,7 @@
 			}
 			else {
 				element.codemirror = CodeMirror.fromTextArea(element, config);
+				element.codemirror.foldCode(CodeMirror.Pos(13, 0));
 				const oldToTextArea = element.codemirror.toTextArea;
 				element.codemirror.toTextArea = () => {
 					oldToTextArea();

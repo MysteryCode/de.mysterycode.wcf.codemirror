@@ -91,7 +91,6 @@
 			}
 			else {
 				element.codemirror = CodeMirror.fromTextArea(element, config);
-				element.codemirror.foldCode(CodeMirror.Pos(13, 0));
 				const oldToTextArea = element.codemirror.toTextArea;
 				element.codemirror.toTextArea = () => {
 					oldToTextArea();

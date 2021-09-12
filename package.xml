@@ -3,8 +3,8 @@
 	<packageinformation>
 		<packagename>CodeMirror</packagename>
 		<packagedescription><![CDATA[Implements CodeMirror]]></packagedescription>
-		<version>1.0.0</version>
-		<date>2021-09-11</date>
+		<version>1.0.1</version>
+		<date>2021-09-12</date>
 	</packageinformation>
 	
 	<authorinformation>
@@ -22,6 +22,11 @@
 	
 	<instructions type="install">
 		<instruction type="file" />
+		<instruction type="acpTemplate" />
+		<instruction type="template" />
+	</instructions>
+	
+	<instructions type="update" fromversion="1.0.0">
 		<instruction type="acpTemplate" />
 		<instruction type="template" />
 	</instructions>

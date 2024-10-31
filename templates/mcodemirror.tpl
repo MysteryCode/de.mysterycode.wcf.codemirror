@@ -1,13 +1,13 @@
 {if !$codemirrorLoaded|isset}
 	<script data-relocate="true">window.define.amd = undefined;</script>
-	<script data-relocate="true" src="{@$__wcf->getPath()}js/3rdParty/codemirror-mc/codemirror.js"></script>
+	<script data-relocate="true" src="{@$__wcf->getPath()}js/3rdParty/codemirror-mc/lib/codemirror.js"></script>
 	<script data-relocate="true" src="{@$__wcf->getPath()}js/3rdParty/codemirror-mc/addon/dialog/dialog.js"></script>
 	<script data-relocate="true" src="{@$__wcf->getPath()}js/3rdParty/codemirror-mc/addon/search/searchcursor.js"></script>
 	<script data-relocate="true" src="{@$__wcf->getPath()}js/3rdParty/codemirror-mc/addon/search/search.js"></script>
 	<script data-relocate="true">window.define.amd = window.__require_define_amd;</script>
 	<script data-relocate="true">
 		[
-			'{@$__wcf->getPath()}js/3rdParty/codemirror-mc/codemirror.css',
+			'{@$__wcf->getPath()}js/3rdParty/codemirror-mc/lib/codemirror.css',
 			'{@$__wcf->getPath()}js/3rdParty/codemirror-mc/addon/dialog/dialog.css',
 			'{@$__wcf->getPath()}js/3rdParty/codemirror-mc/addon/fold/foldgutter.css',
 			'{@$__wcf->getPath()}js/3rdParty/codemirror-mc/theme/{CODEMIRROR_THEME}.css',
